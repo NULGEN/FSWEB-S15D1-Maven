@@ -25,8 +25,11 @@ public class MobilePhone {
     }
 
     public boolean addNewContact(Contact contact) {
-        if (findContact(contact.getName()) != -1) {
+        if (contact ==null || contact.getName() ==null || contact.getPhoneNumber() == null) {
             return false;
+        }
+        if(findContact(contact.getName())>=0){
+            return  false;
         }
         myContacts.add(contact);
         return true;
@@ -45,11 +48,12 @@ public class MobilePhone {
     // Remove contact
     public boolean removeContact(Contact contact) {
         int index = findContact(contact);
-        if (index == -1) {
+        if (index == -1 || contact == null) {
             return false; // Contact does not exist
         }
-        myContacts.remove(index);
-        return true;
+        //myContacts.remove(index);
+       // return true;
+        return  this.myContacts.remove(contact);
     }
 
     public Contact queryContact(String name) {

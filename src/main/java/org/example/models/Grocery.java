@@ -77,6 +77,7 @@ public class Grocery {
         String[] itemsArray = input.split(",");
 
         for (String item: itemsArray){
+
             item = item.trim();
             if(groceryList.contains(item)){
                 groceryList.remove(item);
